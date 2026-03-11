@@ -24,7 +24,7 @@ export function Header() {
           Sara Park
         </Link>
         <div className="flex items-center gap-2">
-          <nav className="hidden sm:block">
+          <nav className="hidden sm:block sm:mr-6">
             <ul className="flex gap-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
