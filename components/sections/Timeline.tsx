@@ -1,7 +1,7 @@
 "use client";
 
-import { experience, education } from "@/data/portfolio";
-import type { Experience as ExperienceType, Education as EducationType } from "@/types";
+import { experience, education, lifeMilestones } from "@/data/portfolio";
+import type { Experience as ExperienceType, Education as EducationType, LifeMilestone as LifeMilestoneType } from "@/types";
 import { AnimatedSection, AnimatedStagger, AnimatedItem } from "@/components/ui/AnimatedSection";
 
 const cardClass =
@@ -17,13 +17,9 @@ function ExperienceCard({ item, align }: { item: ExperienceType; align: "left" |
         {item.company}
         {item.location && ` · ${item.location}`}
       </p>
-      {item.description && item.description.length > 0 && (
-        <ul className={`mt-3 space-y-1 text-sm text-[var(--muted-foreground)] ${align === "right" ? "list-inside list-disc text-right" : "list-inside list-disc"}`}>
-          {item.description.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-      )}
+      {item.description ? (
+        <p className="mt-3 text-xs italic text-[var(--muted-foreground)]">{item.description}</p>
+      ) : null}
     </div>
   );
 }
@@ -42,6 +38,22 @@ function EducationCard({ item, align }: { item: EducationType; align: "left" | "
   );
 }
 
+function MilestoneCard({ item, align }: { item: LifeMilestoneType; align: "left" | "right" }) {
+  const textAlign = align === "right" ? "text-right" : "text-left";
+  return (
+    <div className={`${cardClass} ${textAlign}`}>
+      <h3 className="font-display font-semibold text-[var(--foreground)]">{item.milestone}</h3>
+      <p className="mt-1 text-xs text-[var(--muted-foreground)]">{item.period}</p>
+      {item.location && (
+        <p className="mt-2 text-sm text-[var(--muted-foreground)]">{item.location}</p>
+      )}
+      {item.description ? (
+        <p className="mt-3 text-xs italic text-[var(--muted-foreground)]">{item.description}</p>
+      ) : null}
+    </div>
+  );
+}
+
 /** Parse period string to get end date for sorting (e.g. "Apr 2023 - May 2025" → May 2025) */
 function getSortDate(period: string): number {
   const endPart = period.includes(" - ") ? period.split(" - ")[1]?.trim() ?? period : period;
@@ -51,18 +63,24 @@ function getSortDate(period: string): number {
 
 type TimelineItem =
   | { type: "experience"; data: ExperienceType; sortDate: number }
-  | { type: "education"; data: EducationType; sortDate: number };
+  | { type: "education"; data: EducationType; sortDate: number }
+  | { type: "milestone"; data: LifeMilestoneType; sortDate: number };
 
 function buildTimelineSteps(): TimelineItem[] {
   const items: TimelineItem[] = [
     ...experience.map((e) => ({ type: "experience" as const, data: e, sortDate: getSortDate(e.period) })),
     ...education.map((e) => ({ type: "education" as const, data: e, sortDate: getSortDate(e.period) })),
+    ...lifeMilestones.map((m) => ({ type: "milestone" as const, data: m, sortDate: getSortDate(m.sortPeriod ?? m.period) })),
   ];
-  items.sort((a, b) => b.sortDate - a.sortDate);
+  const typeOrder = { milestone: 0, experience: 1, education: 2 };
+  items.sort((a, b) => {
+    if (b.sortDate !== a.sortDate) return b.sortDate - a.sortDate;
+    return typeOrder[a.type] - typeOrder[b.type];
+  });
   return items;
 }
 
-export function ExperienceEducation() {
+export function Timeline() {
   const steps = buildTimelineSteps();
 
   return (
@@ -109,6 +127,8 @@ export function ExperienceEducation() {
                         <div className="w-full max-w-md max-md:max-w-none max-md:[&_.text-right]:text-left max-md:[&_.flex-row-reverse]:flex-row">
                           {step.type === "experience" ? (
                             <ExperienceCard item={step.data} align="right" />
+                          ) : step.type === "milestone" ? (
+                            <MilestoneCard item={step.data} align="right" />
                           ) : (
                             <div id={isFirstEducation ? "education" : undefined}>
                               <EducationCard item={step.data} align="right" />
@@ -128,6 +148,8 @@ export function ExperienceEducation() {
                         <div className="w-full max-w-md max-md:max-w-none">
                           {step.type === "experience" ? (
                             <ExperienceCard item={step.data} align="left" />
+                          ) : step.type === "milestone" ? (
+                            <MilestoneCard item={step.data} align="left" />
                           ) : (
                             <EducationCard item={step.data} align="left" />
                           )}

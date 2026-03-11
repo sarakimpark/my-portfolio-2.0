@@ -33,13 +33,11 @@ export function Experience() {
                     {item.company}
                     {item.location && ` · ${item.location}`}
                   </p>
-                  {item.description && item.description.length > 0 && (
-                    <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-[var(--muted-foreground)]">
-                      {item.description.map((line, i) => (
-                        <li key={i}>{line}</li>
-                      ))}
-                    </ul>
-                  )}
+                  {item.description ? (
+                    <p className="mt-3 text-xs italic text-[var(--muted-foreground)]">
+                      {item.description}
+                    </p>
+                  ) : null}
                 </div>
               </AnimatedItem>
             ))}

@@ -14,7 +14,7 @@ export interface Experience {
   role: string;
   period: string;
   location?: string;
-  description?: string[];
+  description?: string;
   current?: boolean;
 }
 
@@ -24,6 +24,16 @@ export interface Education {
   degree: string;
   period: string;
   note?: string;
+}
+
+export interface LifeMilestone {
+  id: string;
+  milestone: string;
+  period: string;
+  location?: string;
+  description?: string;
+  /** Optional date used only for timeline ordering (display uses `period`) */
+  sortPeriod?: string;
 }
 
 export interface SocialLink {
