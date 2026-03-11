@@ -4,9 +4,11 @@ import { projects } from "@/data/portfolio";
 import type { Project } from "@/types";
 import { AnimatedSection, AnimatedStagger, AnimatedItem } from "@/components/ui/AnimatedSection";
 
-function ProjectRow({ project }: { project: Project }) {
+function ProjectRow({ project, isLast }: { project: Project; isLast?: boolean }) {
   return (
-    <article className="group border-b border-[var(--border)] py-8 transition hover:border-[var(--foreground)]/20">
+    <article
+      className={`group border-[var(--border)] py-8 transition hover:border-[var(--foreground)]/20 ${isLast ? "" : "border-b"}`}
+    >
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
         <div>
           <h3 className="font-display text-lg font-semibold text-[var(--foreground)]">
@@ -42,16 +44,13 @@ export function Projects() {
       <div className="mx-auto max-w-3xl">
         <AnimatedSection>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
-            My Projects
+            Projects
           </h2>
-          <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-            Recent works
-          </p>
         </AnimatedSection>
         <AnimatedStagger className="mt-12" staggerDelay={0.08}>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <AnimatedItem key={project.id}>
-              <ProjectRow project={project} />
+              <ProjectRow project={project} isLast={index === projects.length - 1} />
             </AnimatedItem>
           ))}
         </AnimatedStagger>

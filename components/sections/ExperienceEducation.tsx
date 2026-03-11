@@ -7,19 +7,18 @@ import { AnimatedSection, AnimatedStagger, AnimatedItem } from "@/components/ui/
 const cardClass =
   "rounded-xl border border-[var(--border)] bg-[var(--background)]/60 backdrop-blur-sm p-5 shadow-sm";
 
-function ExperienceCard({ item }: { item: ExperienceType }) {
+function ExperienceCard({ item, align }: { item: ExperienceType; align: "left" | "right" }) {
+  const textAlign = align === "right" ? "text-right" : "text-left";
   return (
-    <div className={cardClass}>
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="font-display font-semibold text-[var(--foreground)]">{item.role}</h3>
-        <span className="text-xs text-[var(--muted-foreground)]">{item.period}</span>
-      </div>
-      <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+    <div className={`${cardClass} ${textAlign}`}>
+      <h3 className="font-display font-semibold text-[var(--foreground)]">{item.role}</h3>
+      <p className="mt-1 text-xs text-[var(--muted-foreground)]">{item.period}</p>
+      <p className="mt-2 text-sm text-[var(--muted-foreground)]">
         {item.company}
         {item.location && ` · ${item.location}`}
       </p>
       {item.description && item.description.length > 0 && (
-        <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-[var(--muted-foreground)]">
+        <ul className={`mt-3 space-y-1 text-sm text-[var(--muted-foreground)] ${align === "right" ? "list-inside list-disc text-right" : "list-inside list-disc"}`}>
           {item.description.map((line, i) => (
             <li key={i}>{line}</li>
           ))}
@@ -29,16 +28,15 @@ function ExperienceCard({ item }: { item: ExperienceType }) {
   );
 }
 
-function EducationCard({ item }: { item: EducationType }) {
+function EducationCard({ item, align }: { item: EducationType; align: "left" | "right" }) {
+  const textAlign = align === "right" ? "text-right" : "text-left";
   return (
-    <div className={cardClass}>
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="font-display font-semibold text-[var(--foreground)]">{item.degree}</h3>
-        <span className="text-xs text-[var(--muted-foreground)]">{item.period}</span>
-      </div>
-      <p className="mt-1 text-sm text-[var(--muted-foreground)]">{item.institution}</p>
+    <div className={`${cardClass} ${textAlign}`}>
+      <h3 className="font-display font-semibold text-[var(--foreground)]">{item.degree}</h3>
+      <p className="mt-1 text-xs text-[var(--muted-foreground)]">{item.period}</p>
+      <p className="mt-2 text-sm text-[var(--muted-foreground)]">{item.institution}</p>
       {item.note && (
-        <p className="mt-2 text-xs italic text-[var(--muted-foreground)]">{item.note}</p>
+        <p className="mt-3 text-xs italic text-[var(--muted-foreground)]">{item.note}</p>
       )}
     </div>
   );
@@ -79,7 +77,7 @@ export function ExperienceEducation() {
             id="timeline-heading"
             className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl"
           >
-            Experience & Education
+            Experiences
           </h2>
         </AnimatedSection>
 
@@ -107,13 +105,13 @@ export function ExperienceEducation() {
 
                   {isLeft ? (
                     <>
-                      <div className="flex w-[calc(50%-24px)] flex-col items-end pr-6 text-right max-md:w-full max-md:items-stretch max-md:pr-0 max-md:text-left">
-                        <div className="w-full max-w-md max-md:max-w-none">
+                      <div className="flex w-[calc(50%-24px)] flex-col items-end pr-6 max-md:w-full max-md:items-stretch max-md:pr-0">
+                        <div className="w-full max-w-md max-md:max-w-none max-md:[&_.text-right]:text-left max-md:[&_.flex-row-reverse]:flex-row">
                           {step.type === "experience" ? (
-                            <ExperienceCard item={step.data} />
+                            <ExperienceCard item={step.data} align="right" />
                           ) : (
                             <div id={isFirstEducation ? "education" : undefined}>
-                              <EducationCard item={step.data} />
+                              <EducationCard item={step.data} align="right" />
                             </div>
                           )}
                         </div>
@@ -129,9 +127,9 @@ export function ExperienceEducation() {
                       >
                         <div className="w-full max-w-md max-md:max-w-none">
                           {step.type === "experience" ? (
-                            <ExperienceCard item={step.data} />
+                            <ExperienceCard item={step.data} align="left" />
                           ) : (
-                            <EducationCard item={step.data} />
+                            <EducationCard item={step.data} align="left" />
                           )}
                         </div>
                       </div>
