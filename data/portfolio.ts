@@ -115,6 +115,6 @@ export const contactInfo = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { name: "GitHub", href: "https://github.com/sarakimpark", icon: "github" },
+  { name: "Github", href: "https://github.com/sarakimpark", icon: "github" },
   { name: "LinkedIn", href: "https://linkedin.com/in/sarakimpark", icon: "linkedin" },
 ];
