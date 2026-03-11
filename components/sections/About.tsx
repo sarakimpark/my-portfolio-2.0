@@ -11,6 +11,9 @@ export function About() {
           <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
             About Me
           </h2>
+          <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+            <span className="inline-block grayscale" aria-hidden>📍</span> {about.location}
+          </p>
         </AnimatedItem>
         <AnimatedItem>
           <div className="mt-12 space-y-6">
@@ -19,20 +22,6 @@ export function About() {
             </p>
             <p className="text-[var(--foreground)] leading-relaxed">
               {about.bioParagraph2}
-            </p>
-          </div>
-        </AnimatedItem>
-        <AnimatedItem>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[var(--muted-foreground)]">
-            <p><span className="inline-block grayscale" aria-hidden>📍</span> {about.location}</p>
-            <p>
-              <span className="inline-block grayscale" aria-hidden>✉️</span>{" "}
-              <a
-                href={`mailto:${about.email}`}
-                className="underline-offset-2 hover:underline hover:text-[var(--foreground)]"
-              >
-                {about.email}
-              </a>
             </p>
           </div>
         </AnimatedItem>

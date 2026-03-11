@@ -19,7 +19,8 @@ export const about = {
     "Today, I focus on building user-centered applications that solve real-world problems and create intuitive, engaging experiences. I thrive on learning new skills, exploring innovative solutions, and tackling complex challenges that push me to grow as a developer. When I'm not coding, you can find me traveling, vlogging, event planning, cooking, or exploring Los Angeles as a recent transplant.",
   skills: [
     "Javascript",
-    "React & React Native",
+    "React",
+    "React Native",
     "Redux",
     "TypeScript",
     "Python",
