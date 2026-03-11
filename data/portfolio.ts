@@ -29,11 +29,11 @@ export const about = {
     "Next.js",
     "HTML & CSS",
     "Styled Components",
+    "Jest",
     "PostgreSQL",
     "Sequelize",
     "MySQL",
     "MongoDB",
-    "Jest",
   ],
 };
 
