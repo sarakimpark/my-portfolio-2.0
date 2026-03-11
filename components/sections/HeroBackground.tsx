@@ -30,6 +30,7 @@ export function HeroBackground() {
     }> = [];
 
     function resize() {
+      if (!canvas || !ctx) return;
       const dpr = Math.min(window.devicePixelRatio ?? 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
@@ -58,6 +59,7 @@ export function HeroBackground() {
     }
 
     function draw() {
+      if (!ctx) return;
       const w = window.innerWidth;
       const h = window.innerHeight;
       ctx.clearRect(0, 0, w, h);

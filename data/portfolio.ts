@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Sara Park",
   title: "Software Engineer",
   shortDescription: "Turning creativity into reality",
-  resumeUrl: "https://sarakimpark.github.io/assets/pdf/Sara_Park_Resume.pdf",
+  resumeUrl: "/resume.pdf",
   email: "sara.kimpark1@gmail.com",
   profileImage: "/profile.jpg",
   designCredit: "Sara Kim Park",
@@ -18,7 +18,7 @@ export const about = {
   bioParagraph2:
     "Today, I focus on building user-centered applications that solve real-world problems and create intuitive, engaging experiences. I thrive on learning new skills, exploring innovative solutions, and tackling complex challenges that push me to grow as a developer. When I'm not coding, you can find me traveling, vlogging, event planning, cooking, or exploring Los Angeles as a recent transplant.",
   skills: [
-    "Javascript (ES6+)",
+    "Javascript",
     "React & React Native",
     "Redux",
     "TypeScript",
@@ -26,13 +26,13 @@ export const about = {
     "GraphQL",
     "Node.js",
     "Next.js",
-    "Jest",
     "HTML & CSS",
     "Styled Components",
     "PostgreSQL",
     "Sequelize",
     "MySQL",
     "MongoDB",
+    "Jest",
   ],
 };
 

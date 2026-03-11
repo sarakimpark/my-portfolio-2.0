@@ -24,7 +24,11 @@ export function AnimatedSection({
   variants = defaultVariants,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.08,
+    margin: "0px 0px -100px 0px",
+  });
 
   return (
     <motion.div
@@ -57,7 +61,11 @@ export function AnimatedStagger({
   delay = 0,
 }: AnimatedStaggerProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.06,
+    margin: "0px 0px -80px 0px",
+  });
 
   return (
     <motion.div

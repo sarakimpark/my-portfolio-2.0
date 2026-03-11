@@ -1,28 +1,25 @@
-import Link from "next/link";
 import { siteConfig } from "@/data/portfolio";
-import { HeroBackground } from "./HeroBackground";
+import { HeroBackground } from "@/components/sections/HeroBackground";
+import { HeroProfileImage } from "@/components/sections/HeroProfileImage";
+import { Typewriter } from "@/components/sections/Typewriter";
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[var(--background)] px-6"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6 dark:bg-[var(--background)]"
     >
       <HeroBackground />
       <div className="relative z-10 max-w-3xl text-center">
-        <p className="hero-fade-in text-sm uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-          Hi, my name is
-        </p>
-        <h1 className="font-display hero-fade-in hero-fade-in-delay-1 mt-4 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-[var(--foreground)]">
+        <HeroProfileImage />
+        <h1 className="font-display hero-fade-in hero-fade-in-delay-1 mt-6 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-[var(--foreground)]">
           {siteConfig.name}
         </h1>
-        <p className="hero-fade-in hero-fade-in-delay-2 mt-4 text-lg text-[var(--muted-foreground)] sm:text-xl">
-          {siteConfig.title}
-        </p>
-        <p className="hero-fade-in hero-fade-in-delay-2 mt-2 text-[var(--muted-foreground)]">
+        <Typewriter />
+        <p className="hero-fade-in hero-fade-in-delay-3 mt-2 text-[var(--muted-foreground)] sm:text-lg">
           {siteConfig.shortDescription}
         </p>
-        <div className="hero-fade-in hero-fade-in-delay-3 mt-12 flex flex-wrap items-center justify-center gap-4">
+        <div className="hero-fade-in hero-fade-in-delay-4 mt-12 flex flex-wrap items-center justify-center gap-4">
           <a
             href={siteConfig.resumeUrl}
             target="_blank"
@@ -31,21 +28,21 @@ export function Hero() {
           >
             Download Resume
           </a>
-          <Link
+          <a
             href="#contact"
             className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] px-6 text-sm font-medium text-[var(--foreground)] transition hover:border-[var(--foreground)]"
           >
             Contact
-          </Link>
+          </a>
         </div>
       </div>
-      <Link
+      <a
         href="#about"
-        className="hero-fade-in hero-fade-in-delay-4 absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-widest text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
+        className="hero-fade-in hero-fade-in-delay-5 absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-widest text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
         aria-label="Scroll to about"
       >
         Scroll
-      </Link>
+      </a>
     </section>
   );
 }
