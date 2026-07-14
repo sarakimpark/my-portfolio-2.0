@@ -16,7 +16,7 @@ export const about = {
   bioParagraph1:
     "Hi! I'm Sara — a software engineer passionate about learning and bringing ideas to life. I began my journey in pre-med and even got into medical school, but during my gap year teaching high school math, I discovered programming. What started as a way to make virtual learning more engaging quickly became a passion I couldn't stop exploring. Coding combines the creative freedom and problem-solving challenges I've always loved, while giving me the opportunity to build solutions that make a meaningful impact in education, healthcare, and beyond.",
   bioParagraph2:
-    "Today, I focus on building user-centered applications that solve real-world problems and create intuitive, engaging experiences. I thrive on learning new skills, exploring innovative solutions, and tackling complex challenges that push me to grow as a developer. When I'm not coding, you can find me traveling, vlogging, event planning, cooking, or exploring Los Angeles as a recent transplant.",
+    "Today, I focus on building user-centered applications that solve real-world problems and create intuitive, engaging experiences. I thrive on learning new skills, exploring innovative solutions, and tackling complex challenges that push me to grow as a developer. When I'm not coding, you can find me cooking, golfing, traveling, or exploring Los Angeles as a recent transplant.",
   skills: [
     "Javascript",
     "React",
@@ -122,10 +122,10 @@ export const lifeMilestones: LifeMilestone[] = [
   },
   {
     id: "2",
-    milestone: "First Professional Content Creation Project",
+    milestone: "Wedding Content Creation",
     period: "August 2025",
     location: "Cleveland, OH",
-    description: "Created short-form TikTok and Instagram Reels content for a wedding in Cleveland, OH",
+    description: "Started my journey in wedding content creation as a creative side project, producing short-form recap videos for a wedding in Cleveland",
   },
   {
     id: "3",
@@ -136,14 +136,6 @@ export const lifeMilestones: LifeMilestone[] = [
   },
   {
     id: "4",
-    milestone: "Start of Content Creation",
-    period: "Apr 2025",
-    sortPeriod: "May 2025",
-    location: "Los Angeles, CA",
-    description: "Started creating bridal, travel, and fashion content as a creative outlet and to share my journey",
-  },
-  {
-    id: "5",
     milestone: "Engagement & Move to LA",
     period: "Aug 2023",
     location: "Los Angeles, CA",
