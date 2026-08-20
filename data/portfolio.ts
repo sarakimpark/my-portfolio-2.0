@@ -26,6 +26,7 @@ export const about = {
     "Python",
     "GraphQL",
     "Node.js",
+    "Express.js",
     "Next.js",
     "HTML & CSS",
     "Styled Components",
@@ -34,6 +35,8 @@ export const about = {
     "Sequelize",
     "MySQL",
     "MongoDB",
+    "AWS",
+    "Vercel",
   ],
 };
 
