@@ -40,9 +40,21 @@ export const about = {
   ],
 };
 
-export const projects: Project[] = [
-  {
+  export const projects: Project[] = [
+    {
     id: "1",
+    title: "saraandraypark.com",
+    subtitle: "Web Development",
+    category: "web",
+    description: "Customized wedding website built with Squarespace, featuring custom design and code-injected functionality",
+    longDescription:
+      "Custom wedding website built with a Squarespace template and enhanced with code injection to create a personalized and interactive experience. I customized the homepage with a video background and fallback image, added a Korean-English language toggle for bilingual guests, and integrated WithJoy’s RSVP functionality through custom code injection. I also added a CTA linking to a Zola gift registry, extending the template’s functionality while maintaining a cohesive and responsive user experience.",
+  techStack: ["JavaScript", "HTML", "CSS", "Squarespace,", "WithJoy", "Zola"],
+  imageUrl: "/projects/wedding-website.svg",
+  githubUrl: "https://www.saraandraypark.com/",
+  },
+  {
+    id: "2",
     title: "Orchid",
     subtitle: "Web Development",
     category: "web",
@@ -54,7 +66,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/rfe2210-FEC-Orchid/FrontEndCapstone",
   },
   {
-    id: "2",
+    id: "3",
     title: "Fuzzy Friends",
     subtitle: "Web Development",
     category: "web",
@@ -66,7 +78,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Emerald-Lake/fuzzy-friends",
   },
   {
-    id: "3",
+    id: "4",
     title: "Merge",
     subtitle: "Mobile Development",
     category: "mobile",
@@ -78,7 +90,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/sarakimpark/Merge",
   },
   {
-  id: "4",
+  id: "5",
   title: "Twiddler",
   subtitle: "Web Development",
   category: "web",
