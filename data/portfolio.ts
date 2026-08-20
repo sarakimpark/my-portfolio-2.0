@@ -50,7 +50,7 @@ export const projects: Project[] = [
     longDescription:
       "Orchid is a full-stack e-commerce capstone built with a team of engineers. The site includes product browsing, cart management, and a complete shopping experience with a focus on responsive design and reusable UI components. I was responsible for developing the Related Items & Comparison component, including related product and outfit lists, product comparison modals, item removal functionality, and navigation to product detail pages.",
     techStack: ["React", "Styled Components", "Node.js", "Express.js", "Axios", "Jest"],
-    imageUrl: "/projects/orchid.jpg",
+    imageUrl: "/projects/orchid.svg",
     githubUrl: "https://github.com/rfe2210-FEC-Orchid/FrontEndCapstone",
   },
   {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     longDescription:
       "Merge is an mobile native app that allows users to securely log in and manage their health records from different healthcare providers in one place. The app helps users organize their health information, track medical records, and easily access their information when needed.",
     techStack: ["React Native", "Expo", "Node.js", "Express.js", "Axios", "PostgreSQL", "Sequelize", "Firebase"],
-    imageUrl: "/projects/merge.jpg",
+    imageUrl: "/projects/merge.svg",
     githubUrl: "https://github.com/sarakimpark/Merge",
   },
 ];
