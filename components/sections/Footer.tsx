@@ -28,12 +28,12 @@ export function Footer() {
         <p className="text-xs text-[var(--muted-foreground)]">
           Designed by {siteConfig.designCredit}
         </p>
-        <Link
-          href="#hero"
+        <a
+          href="#"
           className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
         >
           Back to top
-        </Link>
+        </a>
         <nav className="flex gap-6" aria-label="Social links">
           {socialLinks.map((link) => (
             <Link

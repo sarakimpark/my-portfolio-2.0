@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig } from "@/data/portfolio";
 import { HeroBackground } from "@/components/sections/HeroBackground";
 import { HeroProfileImage } from "@/components/sections/HeroProfileImage";
@@ -28,21 +29,21 @@ export function Hero() {
           >
             Download Resume
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] px-6 text-sm font-medium text-[var(--foreground)] transition hover:border-[var(--foreground)]"
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
-      <a
-        href="#about"
+      <Link
+        href="/about"
         className="hero-fade-in hero-fade-in-delay-5 absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-widest text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
-        aria-label="Scroll to about"
+        aria-label="Go to about"
       >
-        Scroll
-      </a>
+        About
+      </Link>
     </section>
   );
 }

@@ -84,11 +84,7 @@ export function Timeline() {
   const steps = buildTimelineSteps();
 
   return (
-    <section
-      id="experience"
-      className="scroll-mt-24 border-t border-[var(--border)] py-24 px-6"
-      aria-labelledby="timeline-heading"
-    >
+    <section className="py-24 px-6" aria-labelledby="timeline-heading">
       <div className="mx-auto max-w-3xl">
         <AnimatedSection>
           <h2

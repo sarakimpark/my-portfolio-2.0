@@ -2,23 +2,33 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experiences" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/experience", label: "Experiences" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
 ];
+
+function linkClass(active: boolean, block = false) {
+  return `${block ? "block " : ""}text-sm transition ${
+    active
+      ? "text-[var(--foreground)]"
+      : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+  }`;
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
-          href="#hero"
+          href="/"
           className="font-display text-lg font-semibold text-[var(--foreground)]"
         >
           Sara Park
@@ -30,7 +40,7 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
+                    className={linkClass(pathname === link.href)}
                   >
                     {link.label}
                   </Link>
@@ -60,7 +70,7 @@ export function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  className={linkClass(pathname === link.href, true)}
                 >
                   {link.label}
                 </Link>

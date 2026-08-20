@@ -274,14 +274,14 @@ export function Projects() {
   }, [activeFilter, scrollToIndex]);
 
   return (
-    <section id="projects" className="scroll-mt-24 border-t border-[var(--border)] py-24 px-6">
-      <div className="mx-auto max-w-5xl">
-        <AnimatedSection>
-          <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
-            Projects
-          </h2>
-        </AnimatedSection>
+    <section className="py-24 px-6">
+      <AnimatedSection className="mx-auto max-w-3xl">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
+          Projects
+        </h2>
+      </AnimatedSection>
 
+      <div className="mx-auto max-w-5xl">
         <AnimatedSection className="mt-8" delay={0.05}>
           <LayoutGroup>
             <div className="flex flex-wrap items-center justify-center gap-6">

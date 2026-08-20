@@ -5,7 +5,7 @@ import { AnimatedStagger, AnimatedItem } from "@/components/ui/AnimatedSection";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 border-t border-[var(--border)] py-24 px-6">
+    <section className="py-24 px-6">
       <AnimatedStagger className="mx-auto max-w-3xl" staggerDelay={0.12}>
         <AnimatedItem>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
