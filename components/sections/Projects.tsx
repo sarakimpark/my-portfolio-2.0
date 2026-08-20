@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { projects } from "@/data/portfolio";
 import type { Project, ProjectCategory } from "@/types";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -103,46 +103,43 @@ function ProjectModal({
         exit={{ opacity: 0, y: 16, scale: 0.98 }}
         transition={{ duration: 0.25 }}
       >
-        <div className="relative aspect-video w-full overflow-hidden bg-[var(--muted)]">
+        <div className="relative w-full bg-white">
           <Image
             src={project.imageUrl}
             alt={project.title}
-            fill
-            className="object-cover"
+            width={642}
+            height={517}
+            className="h-auto w-full object-contain"
             sizes="(max-width: 768px) 100vw, 672px"
             priority
           />
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] outline-none transition hover:text-white focus:outline-none focus-visible:text-white"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
         </div>
         <div className="p-6 sm:p-8">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <span className="text-xs font-medium uppercase tracking-wide text-[var(--muted-foreground)]">
-                {project.subtitle}
-              </span>
-              <h3
-                id="project-modal-title"
-                className="mt-2 font-display text-2xl font-semibold text-[var(--foreground)]"
-              >
-                {project.title}
-              </h3>
-            </div>
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={onClose}
-              aria-label="Close"
-              className="rounded-full p-2 text-[var(--muted-foreground)] transition hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path
-                  d="M6 6l12 12M18 6L6 18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-          </div>
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--muted-foreground)]">
+            {project.subtitle}
+          </span>
+          <h3
+            id="project-modal-title"
+            className="mt-2 font-display text-2xl font-semibold text-[var(--foreground)]"
+          >
+            {project.title}
+          </h3>
           <p className="mt-5 text-[var(--foreground)] leading-relaxed">
             {project.longDescription}
           </p>
@@ -210,20 +207,30 @@ export function Projects() {
   );
 
   const handleFilterChange = (filter: ProjectFilter) => {
+    if (filter === activeFilter) return;
     setActiveFilter(filter);
     setActiveIndex(0);
   };
 
-  const scrollToIndex = useCallback((index: number) => {
+  const getSlides = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return [];
+    return Array.from(track.children).filter(
+      (child): child is HTMLElement =>
+        child instanceof HTMLElement && child.dataset.slide === "true",
+    );
+  }, []);
+
+  const scrollToIndex = useCallback((index: number, behavior: ScrollBehavior = "smooth") => {
     const track = trackRef.current;
     if (!track) return;
 
-    const slide = track.children[index] as HTMLElement | undefined;
+    const slide = getSlides()[index];
     if (!slide) return;
 
-    track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+    track.scrollTo({ left: slide.offsetLeft, behavior });
     setActiveIndex(index);
-  }, []);
+  }, [getSlides]);
 
   const goToPrevious = () => {
     if (activeIndex <= 0) return;
@@ -240,7 +247,7 @@ export function Projects() {
     if (!track) return;
 
     const handleScroll = () => {
-      const slides = Array.from(track.children) as HTMLElement[];
+      const slides = getSlides();
       if (slides.length === 0) return;
 
       const scrollLeft = track.scrollLeft;
@@ -260,10 +267,10 @@ export function Projects() {
 
     track.addEventListener("scroll", handleScroll, { passive: true });
     return () => track.removeEventListener("scroll", handleScroll);
-  }, [filteredProjects.length]);
+  }, [filteredProjects.length, getSlides]);
 
   useEffect(() => {
-    scrollToIndex(0);
+    scrollToIndex(0, "auto");
   }, [activeFilter, scrollToIndex]);
 
   return (
@@ -276,22 +283,31 @@ export function Projects() {
         </AnimatedSection>
 
         <AnimatedSection className="mt-8" delay={0.05}>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {filters.map((filter) => (
-              <button
-                key={filter.value}
-                type="button"
-                onClick={() => handleFilterChange(filter.value)}
-                className={`cursor-pointer text-sm transition ${
-                  activeFilter === filter.value
-                    ? "font-semibold text-[var(--foreground)]"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
+          <LayoutGroup>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {filters.map((filter) => (
+                <button
+                  key={filter.value}
+                  type="button"
+                  onClick={() => handleFilterChange(filter.value)}
+                  className={`relative cursor-pointer px-1 pb-2 text-sm transition ${
+                    activeFilter === filter.value
+                      ? "font-semibold text-[var(--foreground)]"
+                      : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  {filter.label}
+                  {activeFilter === filter.value && (
+                    <motion.span
+                      layoutId="project-filter-underline"
+                      className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-[var(--foreground)]"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+          </LayoutGroup>
         </AnimatedSection>
 
         <AnimatedSection className="mt-10" delay={0.1}>
@@ -301,22 +317,35 @@ export function Projects() {
             </p>
           ) : (
             <div className="relative">
-              <div
+              <motion.div
                 ref={trackRef}
-                className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                layout
+                className="flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               >
-                {filteredProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="w-full shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-                  >
-                    <ProjectCard
-                      project={project}
-                      onViewDetails={setSelectedProject}
-                    />
-                  </div>
-                ))}
-              </div>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  {filteredProjects.map((project) => (
+                    <motion.div
+                      key={project.id}
+                      data-slide="true"
+                      layout
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.85 }}
+                      transition={{
+                        opacity: { duration: 0.4, ease: "easeInOut" },
+                        scale: { duration: 0.4, ease: "easeInOut" },
+                        layout: { type: "spring", stiffness: 320, damping: 32 },
+                      }}
+                      className="w-full shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                    >
+                      <ProjectCard
+                        project={project}
+                        onViewDetails={setSelectedProject}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
 
               {filteredProjects.length > 1 && (
                 <div className="mt-6 flex items-center justify-center gap-4">
