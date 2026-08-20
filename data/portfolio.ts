@@ -109,7 +109,7 @@ export const experience: Experience[] = [
     role: "Software Engineer",
     period: "Apr 2023 - May 2025",
     location: "Remote",
-    description: "Started my career as a Software Engineer I and was later promoted to Software Engineer II on the Commerce Web team",
+    description: "Joined as a Software Engineer I and was promoted to Software Engineer II on the Commerce Web team",
   },
   {
     id: "2",
@@ -117,7 +117,7 @@ export const experience: Experience[] = [
     role: "High School Mathematics Teacher",
     period: "Aug 2019 - Jul 2022",
     location: "Carrollton, TX",
-    description: "Taught high school mathematics through the COVID-19 pandemic while preparing to apply to medical school",
+    description: "Taught high school mathematics during the COVID-19 pandemic, where building online curriculum for my students introduced me to programming and ultimately inspired me to pursue software engineering",
   },
   {
     id: "3",
@@ -125,7 +125,7 @@ export const experience: Experience[] = [
     role: "SAT Instructor & Curriculum Writer",
     period: "Sep 2018 - Sep 2019",
     location: "Plano, TX",
-    description: "Moved back to Dallas, TX after college and worked as an SAT instructor during my pre-med gap year",
+    description: "Taught SAT mathematics and developed curriculum and instructional materials during my pre-med gap year",
   },
 ];
 
@@ -142,7 +142,7 @@ export const education: Education[] = [
     institution: "Hack Reactor",
     degree: "Advanced Software Engineering",
     period: "Oct 2022 - Jan 2023",
-    note: "Recipient of a full $18,000 scholarship covering the entire coding bootcamp tuition",
+    note: "Received a full $18,000 scholarship covering the entire program tuition",
   },
   {
     id: "3",
@@ -166,21 +166,21 @@ export const lifeMilestones: LifeMilestone[] = [
     milestone: "Wedding Content Creation",
     period: "August 2025",
     location: "Cleveland, OH",
-    description: "Started my journey in wedding content creation as a creative side project, producing short-form recap videos for a wedding in Cleveland",
+    description: "Started wedding content creation as a creative side project, producing short-form recap videos for a wedding in Cleveland",
   },
   {
     id: "3",
-    milestone: "Chegg Layoff",
+    milestone: "New Chapter",
     period: "May 2025",
     location: "Los Angeles, CA",
-    description: "Impacted by a company-wide layoff, I decided to step away and focus on wedding planning after our venue was affected by the Pacific Palisades wildfire",
+    description: "Following a company-wide layoff at Chegg, I took time to focus on wedding planning after our venue was affected by the Pacific Palisades wildfire",
   },
   {
     id: "4",
     milestone: "Engagement & Move to LA",
     period: "Aug 2023",
     location: "Los Angeles, CA",
-    description: "Got engaged and relocated to pursue new opportunities and explore the creative scene in Los Angeles",
+    description: "Got engaged and relocated to Los Angeles,beginning a new chapter and exploring the city's creative community",
   },
 ];
 
