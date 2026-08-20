@@ -41,22 +41,37 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Orchid",
+    subtitle: "Web Development",
+    category: "web",
     description: "E-commerce website with full shopping and checkout experience.",
-    techStack: ["Web Development"],
+    longDescription:
+      "Orchid is a full-stack e-commerce capstone built with a team of engineers. The site includes product browsing, cart management, and a complete checkout flow. We focused on responsive layout, reusable UI components, and a polished shopping experience from catalog to purchase confirmation.",
+    techStack: ["React", "Node.js", "PostgreSQL"],
+    imageUrl: "/projects/orchid.jpg",
     githubUrl: "https://github.com/rfe2210-FEC-Orchid/FrontEndCapstone",
   },
   {
     id: "2",
     title: "Fuzzy Friends",
+    subtitle: "Web Development",
+    category: "web",
     description: "Social networking app for pet owners to connect and share.",
-    techStack: ["Web Development"],
+    longDescription:
+      "Fuzzy Friends is a social platform where pet owners create profiles for their pets, connect with other owners, and share updates. The app includes user authentication, profile management, and a feed-style experience designed to feel friendly and approachable for a community-driven product.",
+    techStack: ["React", "Express", "MongoDB"],
+    imageUrl: "/projects/fuzzy-friends.jpg",
     githubUrl: "https://github.com/Emerald-Lake/fuzzy-friends",
   },
   {
     id: "3",
     title: "Merge",
+    subtitle: "Mobile App",
+    category: "mobile",
     description: "Personalized medical records app for managing health information.",
-    techStack: ["Mobile App"],
+    longDescription:
+      "Merge is a mobile app that helps users organize and access personal medical records in one place. The project emphasizes secure data handling, clear information hierarchy, and an interface that makes health details easier to review and share when needed.",
+    techStack: ["React Native", "Node.js", "PostgreSQL"],
+    imageUrl: "/projects/merge.jpg",
     githubUrl: "https://github.com/sarakimpark/Merge",
   },
 ];

@@ -1,11 +1,16 @@
+export type ProjectCategory = "web" | "mobile";
+
 export interface Project {
   id: string;
   title: string;
+  subtitle: string;
+  category: ProjectCategory;
   description: string;
+  longDescription: string;
   techStack: string[];
+  imageUrl: string;
   githubUrl?: string;
   liveUrl?: string;
-  imageUrl?: string;
 }
 
 export interface Experience {
