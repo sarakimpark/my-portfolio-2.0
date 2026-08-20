@@ -155,7 +155,7 @@ function ProjectModal({
               rel="noopener noreferrer"
               className="mt-6 inline-flex text-sm font-medium text-[var(--foreground)] underline-offset-4 hover:underline"
             >
-              View on GitHub →
+              View Project →
             </a>
           )}
         </div>
