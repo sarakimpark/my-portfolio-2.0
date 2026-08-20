@@ -62,7 +62,7 @@ export const projects: Project[] = [
     longDescription:
       "Fuzzy Friends is a minimum viable product (MVP) social platform where pet owners can discover and connect with other pets through a swipe-based matching experience. Users can swipe right to match or left to pass, and matched users can chat with each other. I was primarily responsible for developing the chat functionality and messaging experience for matched pet owners.",
     techStack: ["TypeScript", "React", "Vite", "Material UI", "Tailwind CSS", "Jest", "Auth0", "Axios", "MongoDB"],
-    imageUrl: "/projects/fuzzy-friends.jpg",
+    imageUrl: "/projects/fuzzy-friends.svg",
     githubUrl: "https://github.com/Emerald-Lake/fuzzy-friends",
   },
   {
