@@ -46,7 +46,7 @@ export const projects: Project[] = [
     title: "Orchid",
     subtitle: "Web Development",
     category: "web",
-    description: "E-commerce website with an intuitive shopping experience.",
+    description: "E-commerce website with an intuitive shopping experience",
     longDescription:
       "Orchid is a full-stack e-commerce capstone built with a team of engineers. The site includes product browsing, cart management, and a complete shopping experience with a focus on responsive design and reusable UI components. I was responsible for developing the Related Items & Comparison component, including related product and outfit lists, product comparison modals, item removal functionality, and navigation to product detail pages.",
     techStack: ["React", "Styled Components", "Node.js", "Express.js", "Axios", "Jest"],
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     title: "Fuzzy Friends",
     subtitle: "Web Development",
     category: "web",
-    description: "Social networking app for pet owners to connect and share.",
+    description: "Social networking app for pet owners to connect and share",
     longDescription:
       "Fuzzy Friends is a minimum viable product (MVP) social platform where pet owners can discover and connect with other pets through a swipe-based matching experience. Users can swipe right to match or left to pass, and matched users can chat with each other. I was primarily responsible for developing the chat functionality and messaging experience for matched pet owners.",
     techStack: ["TypeScript", "React", "Vite", "Material UI", "Tailwind CSS", "Jest", "Auth0", "Axios", "MongoDB"],
@@ -77,6 +77,17 @@ export const projects: Project[] = [
     imageUrl: "/projects/merge.svg",
     githubUrl: "https://github.com/sarakimpark/Merge",
   },
+  {
+  id: "4",
+  title: "Twiddler",
+  subtitle: "Web Development",
+  category: "web",
+  description: "Twitter-inspired social media feed for sharing posts, connecting with friends, and interacting with a dynamic feed",
+  longDescription: "Twiddler is a Twitter-inspired social media app built with JavaScript and jQuery. The site includes a dynamic home feed, user profiles, friends lists, and interactive posts, with a focus on creating an engaging and intuitive user experience. I was responsible for designing the entire user interface and developing the feed functionality, including rendering posts, displaying timestamps, filtering posts by user, and allowing users to create and interact with tweets.",
+  techStack: ["JavaScript", "jQuery", "HTML", "CSS"],
+  imageUrl: "/projects/twiddler.svg",
+  githubUrl: "https://github.com/sarakimpark/seip2210-twiddler",
+},
 ];
 
 export const experience: Experience[] = [
