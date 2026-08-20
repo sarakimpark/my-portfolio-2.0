@@ -49,7 +49,7 @@ export const about = {
     description: "Customized wedding website built with Squarespace, featuring custom design and code-injected functionality",
     longDescription:
       "Custom wedding website built with a Squarespace template and enhanced with code injection to create a personalized and interactive experience. I customized the homepage with a video background and fallback image, added a Korean-English language toggle for bilingual guests, and integrated WithJoy’s RSVP functionality through custom code injection. I also added a CTA linking to a Zola gift registry, extending the template’s functionality while maintaining a cohesive and responsive user experience.",
-  techStack: ["JavaScript", "HTML", "CSS", "Squarespace,", "WithJoy", "Zola"],
+  techStack: ["JavaScript", "HTML", "CSS", "Squarespace", "WithJoy", "Zola"],
   imageUrl: "/projects/wedding-website.svg",
   githubUrl: "https://www.saraandraypark.com/",
   },
